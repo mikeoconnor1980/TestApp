@@ -39,7 +39,7 @@ export class DTTableComponent implements OnInit {
         return this.sort.descending ? '-' + this.sort.column : this.sort.column;
     }
 
-    onSelect(key) : void {
-        this.selectedRow = key;
+    onSelect(id) : void {
+        this.selectedRow = id;
     }
 }

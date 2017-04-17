@@ -11,7 +11,7 @@
             <th [hidden]="!AllowDelete"></th>
         </thead>
         <tbody>
-            <tr *ngFor="let d of data | orderBy : convertSorting()" (dblclick)="onSelect(d.Key)" [class.success]="d.Key == selectedRow">
+            <tr *ngFor="let d of data | orderBy : convertSorting()" (dblclick)="onSelect(d.id)" [class.success]="d.id == selectedRow">
                 <td *ngFor="let col of columns">{{d[col.colName]}} </td>
             </tr>
         </tbody>

@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { UniversalModule } from 'angular2-universal';
 
-import { AppComponent, HomeComponent, FetchDataComponent, CounterComponent} from  './calendar/index';
-import { DTTableDataService, NavBarItemService, DTTableColumnDefinitionService} from  './calendar/index';
+import { AppComponent, HomeComponent, ContentComponent, FetchDataComponent, CounterComponent} from  './calendar/index';
+import { DTTableDataService, NavBarItemService, DTTableColumnDefinitionService, ContentDataService, ContentDataDefinitionService } from  './calendar/index';
 import { DTTableComponent, DTFormComponent, NavMenuComponent, NavBarComponent, NavBarItemListComponent} from  './core/index';
 import { OrderBy, Format } from  './core/index';
 
@@ -13,7 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
     bootstrap: [ AppComponent ],
         providers: [
-        NavBarItemService, DTTableColumnDefinitionService, DTTableDataService
+        NavBarItemService, DTTableColumnDefinitionService, DTTableDataService, ContentDataService, ContentDataDefinitionService
     ],
     declarations: [
         AppComponent,
@@ -22,7 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         NavBarItemListComponent,
         CounterComponent,
         FetchDataComponent,
-        HomeComponent,
+        HomeComponent, ContentComponent,
         DTTableComponent,
         DTFormComponent, OrderBy, Format
     ],
@@ -34,6 +34,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'content', component: ContentComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]

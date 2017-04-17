@@ -3,7 +3,7 @@ import { DTTableColumnDefinition } from '../../core/models/dt-table-column-defin
 export class DTTableColumnDefinitionService {
   getAll(): DTTableColumnDefinition[] {
     return [
-      { colName: "Key", dataType: "string", sortable: true },
+      { colName: "id", dataType: "number", sortable: true },
       { colName: "paramName",  dataType: "string", sortable: true },
       { colName: "readType",  dataType: "string", sortable: false },
       { colName: "regEx",  dataType: "string", sortable: true },
