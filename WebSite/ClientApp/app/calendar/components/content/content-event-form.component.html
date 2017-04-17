@@ -4,15 +4,15 @@
     <form #ContentEventForm="ngForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="name">Event Name</label>
-        <input type="text" class="form-control" id="id" required [(ngModel)]="item.id" name="id" #name="ngModel">
-        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+        <input type="text" class="form-control" id="id" required [(ngModel)]="item.id" name="id" #id="ngModel">
+        <div [hidden]="id.valid || id.pristine" class="alert alert-danger">
           Event Name is required
         </div>
       </div>
       <div class="form-group">
         <label for="name">Display Name</label>
-        <input type="text" class="form-control" id="displayname" required [(ngModel)]="item.displayname" name="displayname" #name="ngModel">
-        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+        <input type="text" class="form-control" id="displayname" required [(ngModel)]="item.displayname" name="displayname" #displayname="ngModel">
+        <div [hidden]="displayname.valid || displayname.pristine" class="alert alert-danger">
           Display Name is required
         </div>
       </div>

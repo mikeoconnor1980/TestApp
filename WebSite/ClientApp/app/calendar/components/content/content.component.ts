@@ -20,6 +20,7 @@ export class ContentComponent {
         column: 'id', //to match the variable of one of the columns
         descending: false
     };
+    rowItemSelected : ContentEvent;
     rowItem : ContentEvent = new ContentEvent('eukc_file', 'CT Filing', 'eukc', new Date('12/31/2016'));
 
    constructor(private columnService : ContentDataDefinitionService, 
@@ -38,9 +39,12 @@ ngOnInit(){
     this.data = this.dataService.getAll();    
   }
 
- onNotify(message:any):void {
-    //alert(JSON.stringify(message));
-    
-    this.rowItem = message;
+ onNotify(message: any): void {
+    this.rowItemSelected = message;
+    this.rowItem = Object.assign({}, this.rowItemSelected);
+  }
+
+  onSubmit(message: any): void {
+    alert(JSON.stringify(message));
   }
 }

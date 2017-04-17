@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ContentEvent }    from '../../models/content-event';
 
 @Component({
@@ -12,9 +12,14 @@ export class ContentEventFormComponent {
   
   submitted = false;
 
+  @Output() submit: EventEmitter<any> = new EventEmitter<any>();
   @Input() item: ContentEvent;
 
-  onSubmit() { this.submitted = true; }
+  onSubmit() 
+  { 
+    this.submitted = true; 
+    this.submit.emit(this);
+  }
 
   newContentEvent() {
     this.item = new ContentEvent('','', '');
