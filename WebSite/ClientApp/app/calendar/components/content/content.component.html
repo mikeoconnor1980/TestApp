@@ -1,11 +1,11 @@
 <h1>Content Page</h1>
 <p>Use this page to edit your content</p>
 
-<dt-table [columnDefinitions]="columns" [dataMap]="data" [sort]="sort">
+<dt-table [columnDefinitions]="columns" [dataMap]="data" [sort]="sort" (notify)="onNotify($event)">
 
 </dt-table>
 
-<content-event-form></content-event-form>
+<content-event-form [item]="rowItem"></content-event-form>
 
 <!--<dt-form></dt-form>-->
 

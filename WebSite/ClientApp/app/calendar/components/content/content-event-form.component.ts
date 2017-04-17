@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ContentEvent }    from '../../models/content-event';
 
 @Component({
@@ -9,16 +9,16 @@ import { ContentEvent }    from '../../models/content-event';
 export class ContentEventFormComponent {
 
   rulepacks = ['eukc', 'ebec', 'dtwf', 'efrc'];
-
-  model = new ContentEvent('eukc_file', 'CT Filing', this.rulepacks[0], new Date('12/31/2016'));
   
   submitted = false;
+
+  @Input() item: ContentEvent;
 
   onSubmit() { this.submitted = true; }
 
   newContentEvent() {
-    this.model = new ContentEvent('','', '');
+    this.item = new ContentEvent('','', '');
   }
   // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.model); }
+  get diagnostic() { return JSON.stringify(this.item); }
 }

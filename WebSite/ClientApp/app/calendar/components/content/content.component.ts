@@ -4,6 +4,7 @@ import { DTTableColumnDefinition } from '../../../core/models/dt-table-column-de
 import { ContentDataDefinitionService } from '../../services/content-data-definition.service';
 import { ContentDataService } from '../../services/content-data.service';
 import { ContentEventFormComponent } from './content-event-form.component';
+import { ContentEvent }    from '../../models/content-event';
 
 /*import { DTTableColumnDefinitionService } from '../../services/dt-table-column-definition.service';
 import { DTTableDataService } from '../../services/dt-table-data.service';*/
@@ -19,6 +20,7 @@ export class ContentComponent {
         column: 'id', //to match the variable of one of the columns
         descending: false
     };
+    rowItem : ContentEvent = new ContentEvent('eukc_file', 'CT Filing', 'eukc', new Date('12/31/2016'));
 
    constructor(private columnService : ContentDataDefinitionService, 
     private dataService : ContentDataService){ }
@@ -35,4 +37,10 @@ ngOnInit(){
     this.columns = this.columnService.getAll();
     this.data = this.dataService.getAll();    
   }
+
+ onNotify(message:any):void {
+    //alert(JSON.stringify(message));
+    
+    this.rowItem = message;
+  }
 }

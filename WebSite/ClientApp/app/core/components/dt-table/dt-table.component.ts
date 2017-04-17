@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { DTTableColumnDefinition } from '../../models/dt-table-column-definition';
 import {OrderBy} from "./orderBy"
 import {Format} from "./format"
@@ -12,13 +12,17 @@ import {Format} from "./format"
 export class DTTableComponent implements OnInit {
     columns: DTTableColumnDefinition[] = [];
     data: any = [];
-    selectedRow: number;
+    selectedRow2: number;
+    
 
     constructor() { }
 
     @Input() columnDefinitions: DTTableColumnDefinition[];
     @Input() dataMap: any[];
     @Input() sort: any;
+    selectedRow: any;
+
+    @Output() notify: EventEmitter<any> = new EventEmitter<any>();
 
     ngOnInit() {
         this.columns = this.columnDefinitions;
@@ -40,6 +44,11 @@ export class DTTableComponent implements OnInit {
     }
 
     onSelect(id) : void {
-        this.selectedRow = id;
+        this.selectedRow2 = id;
+    }
+
+    onSelectItem(item) : void {
+        this.selectedRow = item;
+        this.notify.emit(item);
     }
 }
