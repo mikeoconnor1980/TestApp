@@ -18,7 +18,7 @@ export class ContentEventFormComponent {
   onSubmit() 
   { 
     this.submitted = true; 
-    this.submit.emit(this);
+    this.submit.emit(this.item);
   }
 
   newContentEvent() {

@@ -20,8 +20,9 @@ export class ContentComponent {
         column: 'id', //to match the variable of one of the columns
         descending: false
     };
+    itemIsSelected : boolean = false;
     rowItemSelected : ContentEvent;
-    rowItem : ContentEvent = new ContentEvent('eukc_file', 'CT Filing', 'eukc', new Date('12/31/2016'));
+    rowItem : ContentEvent = new ContentEvent("","","");
 
    constructor(private columnService : ContentDataDefinitionService, 
     private dataService : ContentDataService){ }
@@ -40,6 +41,7 @@ ngOnInit(){
   }
 
  onNotify(message: any): void {
+    this.itemIsSelected = true;
     this.rowItemSelected = message;
     this.rowItem = Object.assign({}, this.rowItemSelected);
   }
