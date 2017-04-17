@@ -1,0 +1,22 @@
+<div class="table-responsive">
+    <div class="top"></div>
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="">
+            <th *ngFor="let col of columns" (click)="Sort(col.colName)">
+                {{col.colName}}
+                <i class="fa fa-sort" aria-hidden="true" *ngIf="sort.column!=col.colName"></i>
+                <i class="fa fa-sort-asc" aria-hidden="true" *ngIf="sort.column==col.colName && sort.descending==false"></i>
+                <i class="fa fa-sort-desc" aria-hidden="true" *ngIf="sort.column==col.colName && sort.descending==true"></i>
+            </th>
+            <th [hidden]="!AllowDelete"></th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let d of data | orderBy : convertSorting()" (dblclick)="onSelect(d.Key)" [class.success]="d.Key == selectedRow">
+                <td *ngFor="let col of columns">{{d[col.colName]}} </td>
+            </tr>
+        </tbody>
+    </table>
+<!--<td *ngFor="let col of columns">{{d[col.colName | format : col.dataType]}} </td>-->
+    <!--(click)="onSelect(d.Key)" -->
+    <!--<div class="bottom">No records</div>-->
+</div>

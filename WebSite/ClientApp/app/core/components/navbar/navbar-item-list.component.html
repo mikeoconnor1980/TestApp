@@ -1,0 +1,5 @@
+            <ul class="nav navbar-nav">
+                <li [routerLinkActive]="['link-active']" *ngFor="let NavBarItem of NavBarItems">
+                    <a [routerLink]="NavBarItem.routerLink"><span class='glyphicon {{NavBarItem.class}}'></span> {{NavBarItem.name}}</a>
+                </li>
+            </ul>
