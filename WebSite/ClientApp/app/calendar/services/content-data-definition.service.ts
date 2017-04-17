@@ -1,5 +1,7 @@
+import { Injectable } from '@angular/core';
 import { DTTableColumnDefinition } from '../../core/models/dt-table-column-definition';
 
+@Injectable()
 export class ContentDataDefinitionService {
   getAll(): DTTableColumnDefinition[] {
     return [

@@ -1,3 +1,6 @@
+import { Injectable } from '@angular/core';
+
+@Injectable()
 export class ContentDataService {
   getAll(): any {
     return [{ id: 'eukc_file', displayname: 'CT Filing', rulepack: 'eukc', duedate: '12/31/2016' },
