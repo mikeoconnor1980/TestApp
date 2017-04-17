@@ -3,6 +3,7 @@ import {DTTableComponent} from '../../../core/components/dt-table/dt-table.compo
 import { DTTableColumnDefinition } from '../../../core/models/dt-table-column-definition';
 import { ContentDataDefinitionService } from '../../services/content-data-definition.service';
 import { ContentDataService } from '../../services/content-data.service';
+import { ContentEventFormComponent } from './content-event-form.component';
 
 /*import { DTTableColumnDefinitionService } from '../../services/dt-table-column-definition.service';
 import { DTTableDataService } from '../../services/dt-table-data.service';*/

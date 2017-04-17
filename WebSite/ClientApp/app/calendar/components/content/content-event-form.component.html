@@ -1,0 +1,59 @@
+<div class="container">
+  <h1>Content Event Form</h1>
+  <div [hidden]="submitted">
+    <form #ContentEventForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Event Name</label>
+        <input type="text" class="form-control" id="id" required [(ngModel)]="model.id" name="id" #name="ngModel">
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+          Event Name is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="name">Display Name</label>
+        <input type="text" class="form-control" id="displayname" required [(ngModel)]="model.displayname" name="displayname" #name="ngModel">
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+          Display Name is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="name">Rulepack</label>
+        <select class="form-control" id="rulepack" required [(ngModel)]="model.rulepack" name="rulepack">
+          <option *ngFor="let rulepack of rulepacks" [value]="rulepack">{{rulepack}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="duedate">Due Date</label>
+        <input type="text" class="form-control" id="duedate" [(ngModel)]="model.duedate" name="duedate">
+      </div>
+      <button type="button" class="btn btn-default" (click)="newContentEvent(); ContentEventForm.reset()">New Event</button>
+      <button type="submit" class="btn btn-success" [disabled]="!ContentEventForm.form.valid">Submit</button>
+
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">Id</div>
+      <div class="col-xs-9  pull-left">{{ model.id }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Display Name</div>
+      <div class="col-xs-9 pull-left">{{ model.displayname }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Rulepack</div>
+      <div class="col-xs-9 pull-left">{{ model.rulepack }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Due Ddate</div>
+      <div class="col-xs-9 pull-left">{{ model.duedate }}</div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+  </div>
+</div>
+
+
+<p>{{diagnostic}}</p>
